@@ -1,6 +1,7 @@
 const prompt = require("prompt-sync")();
 
 let opcaoUsuario;
+let listaLembretes = [];
 
 function exibirMenu(){
     console.log(`
@@ -38,3 +39,14 @@ function exibirMenu(){
             break;
     }
 }
+
+function adicionarLembrete(){
+    let tituloLembrete = prompt("Qual o título do lembrete? R: ");
+    let descricaoLembrete = prompt("qual sera a descrição? R: ");
+    let status = "PENDENTE"
+    listaLembretes.push(tituloLembrete, descricaoLembrete, status)
+    console.log(listaLembretes)
+}
+
+exibirMenu()
+
