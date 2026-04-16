@@ -55,3 +55,27 @@ function listarLembrete(){
     exibirMenu()
 }
 
+function editarLembrete() {
+    if (listaLembretes.length == 0) {
+        console.log("Nenhum lembrete.");
+        return;
+    }
+
+    listarLembrete();
+
+    let num = prompt("Qual lembrete editar? ");
+    let i = num - 1;
+
+    if (i < 0 || i >= listaLembretes.length) {
+        console.log("Invalido.");
+        return;
+    }
+
+    let novo = prompt("Novo texto: ");
+    let prazo = prompt("Novo prazo: ");
+
+    listaLembretes[i].lembrete = novo;
+    listaLembretes[i].prazo = prazo;
+
+    console.log("Editado.");
+}
