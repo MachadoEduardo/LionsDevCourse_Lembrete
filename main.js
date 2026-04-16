@@ -43,7 +43,7 @@ function exibirMenu(){
 function adicionarLembrete(){
     console.clear();
     let tituloLembrete = prompt("Qual o título do lembrete? R: ");
-    let descricaoLembrete = prompt("Qual sera a descrição? R: ");
+    let descricaoLembrete = prompt("Qual será a descrição? R: ");
     let status = "PENDENTE"
 
     let lembrete = {tituloLembrete, descricaoLembrete, status};
@@ -55,7 +55,20 @@ function adicionarLembrete(){
 
 exibirMenu()
 function listarLembrete(){
-    console.table(listaLembretes)
+    console.clear()
+    if(listaLembretes.length < 1){
+        console.clear()
+        console.log("Não existem lembretes cadastrados.");
+        return exibirMenu()
+    }
+    console.log("Lista dos lembretes cadastrados abaixo.");
+
+    for(i = 0; i < listaLembretes.length; i++){
+        console.log(`${i + 1}. Título: ${listaLembretes[i].tituloLembrete} | Descrição: ${listaLembretes[i].descricaoLembrete} | Status: ${listaLembretes[i].status}`)
+    }
+
+    opcaoUsuario = prompt("Aperte enter para continuar...");
+    console.clear()
     exibirMenu()
 }
 
