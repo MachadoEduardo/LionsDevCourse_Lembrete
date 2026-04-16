@@ -72,28 +72,25 @@ function listarLembrete(){
 }
 
 function editarLembrete() {
-    if (listaLembretes.length == 0) {
-        console.log("Nenhum lembrete.");
-        return;
+    imprimirListaLembretes();
+    let posicao = Number(prompt("Selecione qual dos lembretes deseja editar, R: "))
+
+    if(posicao > 0 && posicao <= listaLembretes.length){
+        let tituloLembrete = prompt("Escreva o título do lembrete. R: ");
+        let descricaoLembrete = prompt("Escreva a descrição do lembrete. R: ");
+        let status = listaLembretes[posicao - 1].status
+
+        let lembreteEditado = {tituloLembrete, descricaoLembrete, status}
+
+        listaLembretes[posicao - 1] = lembreteEditado;
+        console.clear()
+        console.log("Lembrete editado com sucesso!");
+        exibirMenu(); 
+    } else {
+        console.clear();
+        console.log("Selecione um lembrete da lista.");
+        editarLembrete();
     }
-
-    listarLembrete();
-
-    let num = prompt("Qual lembrete editar? ");
-    let i = num - 1;
-
-    if (i < 0 || i >= listaLembretes.length) {
-        console.log("Invalido.");
-        return;
-    }
-
-    let novo = prompt("Novo texto: ");
-    let prazo = prompt("Novo prazo: ");
-
-    listaLembretes[i].lembrete = novo;
-    listaLembretes[i].prazo = prazo;
-
-    console.log("Editado.");
 }
 
 function imprimirListaLembretes() {
