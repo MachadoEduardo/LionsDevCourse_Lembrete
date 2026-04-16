@@ -75,14 +75,10 @@ function editarLembrete() {
     imprimirListaLembretes();
     let index = Number(prompt("Selecione qual dos lembretes deseja editar! R: ")) - 1;
 
-    if(index > 0 && index <= listaLembretes.length){
-        let tituloLembrete = prompt("Escreva o título do lembrete. R: ");
-        let descricaoLembrete = prompt("Escreva a descrição do lembrete. R: ");
-        let status = listaLembretes[index].status
+    if(index >= 0 && index <= listaLembretes.length){
+        listaLembretes[index].tituloLembrete = prompt("Escreva o título do lembrete. R: ");
+        listaLembretes[index].descricaoLembrete  = prompt("Escreva a descrição do lembrete. R: ");
 
-        let lembreteEditado = {tituloLembrete, descricaoLembrete, status}
-
-        listaLembretes[index] = lembreteEditado;
         console.clear()
         console.log("Lembrete editado com sucesso!");
         exibirMenu(); 
@@ -109,7 +105,7 @@ function concluirLembrete(){
     imprimirListaLembretes();
     let index = Number(prompt("Selecione qual dos lembretes deseja marcar como concluído! R: ")) - 1;
 
-    if(index > 0 && index <= listaLembretes.length){
+    if(index >= 0 && index <= listaLembretes.length){
         listaLembretes[index].status = 'CONCLUÍDO';
         console.clear()
         console.log("Lembrete concluído com sucesso!");
