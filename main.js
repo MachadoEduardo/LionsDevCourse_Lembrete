@@ -53,7 +53,6 @@ function adicionarLembrete(){
     exibirMenu()
 }
 
-exibirMenu()
 function listarLembrete(){
     console.clear()
     if(listaLembretes.length < 1){
@@ -96,3 +95,17 @@ function editarLembrete() {
 
     console.log("Editado.");
 }
+
+function imprimirListaLembretes() {
+    if (listaLembretes.length < 1) {
+        console.log("Não existem lembretes cadastrados.");
+        return false;
+    }
+    console.log("Lista dos lembretes cadastrados:");
+    for (let i = 0; i < listaLembretes.length; i++) {
+        console.log(`${i + 1}. Título: ${listaLembretes[i].tituloLembrete} | Descrição: ${listaLembretes[i].descricaoLembrete} | Status: ${listaLembretes[i].status}`)
+    }
+    return true;
+}
+
+exibirMenu()
