@@ -41,11 +41,15 @@ function exibirMenu(){
 }
 
 function adicionarLembrete(){
+    console.clear();
     let tituloLembrete = prompt("Qual o título do lembrete? R: ");
-    let descricaoLembrete = prompt("qual sera a descrição? R: ");
+    let descricaoLembrete = prompt("Qual sera a descrição? R: ");
     let status = "PENDENTE"
-    listaLembretes.push(tituloLembrete, descricaoLembrete, status)
-    console.log(listaLembretes)
+
+    let lembrete = {tituloLembrete, descricaoLembrete, status};
+
+    listaLembretes.push(lembrete);
+    console.log("Lembrete adicionado com sucesso!");
     exibirMenu()
 }
 
