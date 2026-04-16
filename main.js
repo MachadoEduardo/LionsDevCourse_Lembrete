@@ -46,7 +46,12 @@ function adicionarLembrete(){
     let status = "PENDENTE"
     listaLembretes.push(tituloLembrete, descricaoLembrete, status)
     console.log(listaLembretes)
+    exibirMenu()
 }
 
 exibirMenu()
+function listarLembrete(){
+    console.table(listaLembretes)
+    exibirMenu()
+}
 
