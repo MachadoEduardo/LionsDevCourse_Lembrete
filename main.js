@@ -117,4 +117,22 @@ function concluirLembrete(){
     }
 }
 
+function excluirLembrete(){
+    imprimirListaLembretes();
+
+    let index = Number(prompt("Digite o número do lembrete que deseja excluir: ")) - 1;
+
+    if (index >= 0 && index < listaLembretes.length) {
+        listaLembretes.splice(index, 1);
+
+        console.clear();
+        console.log("Lembrete excluído com sucesso!");
+        exibirMenu();
+    } else {
+        console.clear();
+        console.log("Número inválido! Escolha um lembrete da lista.");
+        excluirLembrete(); 
+    }
+}
+
 exibirMenu()
